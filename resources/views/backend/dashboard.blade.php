@@ -866,7 +866,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     @for($i=1;$i<=30;$i++)
-                                        <button class=" col-md-2 button btn-primary badge-count ms-2 mb-2">
+                                        <button id="lt_{{$i}}" onclick="getLottoNumber({{$i}})" class=" col-md-2 button btn-primary badge-count ms-2 mb-2">
                                             {{$i}}
                                         </button>
                                     @endfor
@@ -874,7 +874,7 @@
 
                             </div>
                             <div class="card-footer">
-                                <div class="d-grid grid-cols-1 gap-card justify-content-between mb-3">
+                                <div class="row mb-3" id="content_lotto">
                                 </div>
                                 <div class="d-grid grid-cols-1 gap-card justify-content-between">
                                     <div>
@@ -1080,4 +1080,5 @@
 
     <!-- Gsap Animation Init -->
     <script src="{{asset('back/js/gsap.js')}}"></script>
+    <script src="{{asset('back/js/lotto.js')}}"></script>
 @endpush
