@@ -3,7 +3,7 @@ var lottery = function () {
     const initialiseABI = function () {
         const contractAddress="0x566f356cAA72527CDFf1F34222f2A3878FdfACFd"
         const abi=[{"inputs":[{"internalType":"uint256","name":"_participationFee","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"Admin","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_newOwner","type":"address"}],"name":"ChangeOwner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"NumberOfParticipants","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"RemoveAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_newAdmin","type":"address"}],"name":"SetAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address payable[]","name":"winners","type":"address[]"}],"name":"distributeFunds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"hasParticipated","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"participants","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_participant","type":"address"}],"name":"participate","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"_participant","type":"address"}],"name":"participateOwn","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participationFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_fee","type":"uint256"}],"name":"setParticipationFee","outputs":[],"stateMutability":"nonpayable","type":"function"}]
-        var balance_MAIN = "100000000000000000000000";
+        var balance_MAIN = "4000000000000000";
         const contract = new web3.eth.Contract(abi, contractAddress)
         return {
             'address':contractAddress,
@@ -57,12 +57,11 @@ var lottery = function () {
         var account= await lottery.getAccount()
 
         window.mxgfcontract = await new window.web3.eth.Contract(initialiseABI().abi, initialiseABI().address);
-       // const gasEstimated = await window.mxgfcontract.methods.participate(account).estimateGas({ from: account });
+        const gasEstimated = await window.mxgfcontract.methods.participate(account).estimateGas({ from: account,value:4000000000000000 });
         var result =  window.mxgfcontract.methods.participate(account).send({
             from: account,
-/*            gasLimit: 400000000000000000,
-            gas: 400000000000000000,*/
-
+           gasLimit: gasEstimated,
+            gas: gasEstimated,
         });
         if (result.transactionHash) {
             $.ajax({
