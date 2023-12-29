@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between">
-                           <span class="">
+                                         <span class="">
                               <svg width="32" height="32" viewBox="0 0 34 53" fill="none"
                                    xmlns="http://www.w3.org/2000/svg">
                               <rect x="6" width="1" height="53" rx="0.5" fill="white"/>
@@ -124,7 +124,7 @@
                     <div class="col-xl-3">
                         <div class="d-grid grid-3-auto gap-card">
                             <div class="dropdown">
-                                <button class="btn btn-primary w-100" type="button" id="dropdownMenuButton3"
+                                <button onclick="lottery.login()" class="btn btn-primary w-100" type="button" id="dropdownMenuButton3"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                     Buy / Sell
                                 </button>
@@ -190,8 +190,8 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-2">
-            <div class="col-lg-8">
+        <div class="row pt-2 justify-content-center">
+          <div class="col-lg-8">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
@@ -860,13 +860,11 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row">
+                                <div class="row justify-content-center">
                                     @for($i=1;$i<=30;$i++)
-                                        <button id="lt_{{$i}}" onclick="getLottoNumber({{$i}})" class=" col-md-2 col-sm-2 col-2 col-xl-2 button btn-primary badge-count ms-2 mb-2">
+                                        <button id="lt_{{$i}}" onclick="getLottoNumber({{$i}})" class="col-md-2 col-sm-2 col-2 col-xl-2 button btn-primary badge-count ms-2 mb-2">
                                             {{$i}}
                                         </button>
                                     @endfor
@@ -874,7 +872,7 @@
 
                             </div>
                             <div class="card-footer">
-                                <div class="row mb-3" id="content_lotto">
+                                <div class="row mb-3 container" id="content_lotto">
                                 </div>
                                 <div class="d-grid grid-cols-1 gap-card justify-content-between">
                                     <div>
@@ -891,8 +889,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-12">
+
+{{--                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <div class="header-title">
@@ -1053,7 +1051,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>

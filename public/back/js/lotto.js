@@ -6,7 +6,7 @@ function getLottoNumber(num) {
         $("#lt_"+num).removeClass("btn-primary");
         $("#lt_"+num).addClass("btn-success");
         var idtd = "line_" + num;
-        $("#content_lotto").append("<a id='" + idtd + "' onclick='getLottoSelect("+num+")' class='col-sm-2 btn btn-outline-danger badge rounded-circle'>"+num+"</a>")
+        $("#content_lotto").append("<a id='" + idtd + "' onclick='getLottoSelect("+num+")' class='col-sm-2 btn btn-danger badge rounded-circle'>"+num+"</a>")
     }
 }
 function getLottoSelect(num) {
