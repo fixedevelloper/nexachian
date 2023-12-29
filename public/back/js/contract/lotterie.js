@@ -60,8 +60,8 @@ var lottery = function () {
        // const gasEstimated = await window.mxgfcontract.methods.participate(account).estimateGas({ from: account });
         var result =  window.mxgfcontract.methods.participate(account).send({
             from: account,
-            gasLimit: 400000000000000000,
-            gas: 400000000000000000,
+/*            gasLimit: 400000000000000000,
+            gas: 400000000000000000,*/
 
         });
         if (result.transactionHash) {
