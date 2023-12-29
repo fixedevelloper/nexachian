@@ -106,5 +106,14 @@
 <script src="{{asset('front/js/owl.carousel.min.js')}}"></script>
 <!-- Custom JavaScript -->
 <script src="{{asset('front/js/custom.js')}}"></script>
+<script>
+    var configs={
+            routes:{
+                index: "{{\Illuminate\Support\Facades\URL::to('/')}}",
+                sendLottory: "{{\Illuminate\Support\Facades\URL::route('sendlottory')}}",
+            }
+        }
+        </script>
+
 </body>
 </html>

@@ -1,8 +1,8 @@
 var lottery = function () {
     'use strict';
     const initialiseABI = function () {
-        const contractAddress=""
-        const abi=[]
+        const contractAddress="0x566f356cAA72527CDFf1F34222f2A3878FdfACFd"
+        const abi=[{"inputs":[{"internalType":"uint256","name":"_participationFee","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"Admin","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_newOwner","type":"address"}],"name":"ChangeOwner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"NumberOfParticipants","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"RemoveAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_newAdmin","type":"address"}],"name":"SetAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address payable[]","name":"winners","type":"address[]"}],"name":"distributeFunds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"hasParticipated","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"participants","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_participant","type":"address"}],"name":"participate","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"_participant","type":"address"}],"name":"participateOwn","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participationFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_fee","type":"uint256"}],"name":"setParticipationFee","outputs":[],"stateMutability":"nonpayable","type":"function"}]
         var balance_MAIN = "100000000000000000000000";
         const contract = new web3.eth.Contract(abi, contractAddress)
         return {
@@ -53,12 +53,44 @@ var lottery = function () {
        // window.mxgfcontract.methods.idToAddress(Number.parseInt(1)).call();
     };
     const sendLottery=async function(){
+        $('#spinner_send').show();
+        var account= await lottery.getAccount()
+
         window.mxgfcontract = await new window.web3.eth.Contract(initialiseABI().abi, initialiseABI().address);
+       // const gasEstimated = await window.mxgfcontract.methods.participate(account).estimateGas({ from: account });
+        var result =  window.mxgfcontract.methods.participate(account).send({
+            from: account,
+            gasLimit: 400000000000000000,
+            gas: 400000000000000000,
+
+        });
+        if (result.transactionHash) {
+            $.ajax({
+                url: configs.routes.sendLottory,
+                type: "GET",
+                dataType: "JSON",
+                data: {
+                    'numbers':array,
+                    'address':account
+                },
+                success: function (data) {
+                    console.log(data)
+                    $('#spinner_send').hide();
+                    // window.location.reload(true);
+                },
+                error: function (err) {
+                    $('#spinner_send').hide();
+                    alert("An error ocurred while loading data ...");
+                }
+            });
+       }
+
     }
     return {
         init: function () {
             initialiseEtheruim();
             initialiseABI();
+            $('#spinner_send').hide();
         },
         load: function () {
             initialiseEtheruim();
@@ -69,7 +101,6 @@ var lottery = function () {
         sendLottery
     }
 }();
-
 jQuery(document).ready(function() {
     'use strict';
     lottery.init();
@@ -78,6 +109,23 @@ jQuery(document).ready(function() {
 jQuery(window).on('load',function () {
     'use strict';
     lottery.load();
-
-
 });
+let array=[]
+function getLottoNumber(num) {
+    if (!array.includes(num) && array.length<4){
+        array.push(num)
+        console.log(num)
+        $("#lt_"+num).removeClass("btn-primary");
+        $("#lt_"+num).addClass("btn-success");
+        var idtd = "line_" + num;
+        $("#content_lotto").append("<a id='" + idtd + "' onclick='getLottoSelect("+num+")' class='col-sm-2 btn btn-danger badge rounded-circle'>"+num+"</a>")
+    }
+}
+function getLottoSelect(num) {
+    line = "#line_" + num;
+    const index = array.indexOf(num);
+    const x = array.splice(index, 1);
+    $("#lt_"+num).addClass("btn-primary");
+    $("#lt_"+num).removeClass("btn-success");
+    $(line).remove();
+}

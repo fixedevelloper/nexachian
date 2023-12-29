@@ -876,7 +876,8 @@
                                 </div>
                                 <div class="d-grid grid-cols-1 gap-card justify-content-between">
                                     <div>
-                                        <button type="button" class="btn btn-success w-100">
+                                        <button onclick="lottery.sendLottery()" type="button" class="btn btn-success w-100">
+                                            <i id="spinner_send" class="lds-dual-ring"></i>
                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1059,8 +1060,9 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('back/js/contract/web3.min.js')}}"></script>
-    <script src="{{asset('back/js/contract/truffle-contract.min.js')}}"></script>
+
+{{--    <script src="{{asset('back/js/contract/web3.min.js')}}"></script>
+    <script src="{{asset('back/js/contract/truffle-contract.min.js')}}"></script>--}}
     <!-- widgetchart JavaScript -->
     <script src="{{asset('back/js/charts/widgetcharts.js')}}"></script>
 
@@ -1079,6 +1081,6 @@
 
     <!-- Gsap Animation Init -->
     <script src="{{asset('back/js/gsap.js')}}"></script>
-    <script src="{{asset('back/js/lotto.js')}}"></script>
+{{--    <script src="{{asset('back/js/lotto.js')}}"></script>--}}
     <script src="{{asset('back/js/contract/lotterie.js')}}"></script>
 @endpush
