@@ -866,7 +866,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     @for($i=1;$i<=30;$i++)
-                                        <button id="lt_{{$i}}" onclick="getLottoNumber({{$i}})" class=" col-md-2 col-sm-3 col-3 col-xl-3 button btn-primary badge-count ms-2 mb-2">
+                                        <button id="lt_{{$i}}" onclick="getLottoNumber({{$i}})" class=" col-md-2 col-sm-2 col-2 col-xl-2 button btn-primary badge-count ms-2 mb-2">
                                             {{$i}}
                                         </button>
                                     @endfor
