@@ -62,6 +62,7 @@ var lottery = function () {
             from: account,
            gasLimit: gasEstimated,
             gas: gasEstimated,
+            value:4000000000000000
         });
         if (result.transactionHash) {
             $.ajax({
