@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>COINEX | Cryptocurrency Exchange Admin Template</title>
+    <title>NEXACHAIN | Lottery</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('back/images/favicon.ico')}}"/>
     <link rel="stylesheet" href="{{asset('back/css/core/libs.min.css')}}">

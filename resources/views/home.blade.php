@@ -8,12 +8,12 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-12">
                     <div class="banner-text text-center text-white">
-                        <h1 class="text-white iq-tw-7 iq-mb-20">Token creative of <b class="iq-font-yellow">CoinEX</b> Theme</h1>
+                        <h1 class="text-white iq-tw-7 iq-mb-20">Token creative of <b class="iq-font-yellow">Nexachain</b></h1>
                     </div>
                 </div>
                 <div class="col-lg-12 text-center">
                     <div class="iq-countdown">
-                        <h5 class="iq-tw-6 text-white"><a href="javascript:void(0)"> Coinex </a>on the ethereum ERC20 blockchain</h5>
+                        <h5 class="iq-tw-6 text-white"><a href="javascript:void(0)"> Nexachain </a>on the ethereum ERC20 blockchain</h5>
                         <ul id="countdown">
                             <li class="border-white"><span class="days">00</span>
                                 <p class="days_text">Days</p>

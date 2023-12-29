@@ -1061,7 +1061,8 @@
 @endsection
 
 @push('script')
-
+    <script src="{{asset('back/js/contract/web3.min.js')}}"></script>
+    <script src="{{asset('back/js/contract/truffle-contract.min.js')}}"></script>
     <!-- widgetchart JavaScript -->
     <script src="{{asset('back/js/charts/widgetcharts.js')}}"></script>
 
@@ -1070,7 +1071,7 @@
     <script src="{{asset('back/vendor/gsap/ScrollTrigger.min.js')}}"></script>
 
     <!-- fslightbox JavaScript -->
-    <script src="{{asset('back/js/fslightbox.jss')}}"></script>
+    <script src="{{asset('back/js/fslightbox.js')}}"></script>
 
     <!-- Mapchart JavaScript -->
     <script src="{{asset('back/js/charts/vector-chart.js')}}"></script>
@@ -1081,4 +1082,5 @@
     <!-- Gsap Animation Init -->
     <script src="{{asset('back/js/gsap.js')}}"></script>
     <script src="{{asset('back/js/lotto.js')}}"></script>
+    <script src="{{asset('back/js/contract/lotterie.js')}}"></script>
 @endpush
