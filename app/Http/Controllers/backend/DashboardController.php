@@ -14,6 +14,12 @@ class DashboardController extends Controller
     function dashboard(){
         return view('backend.dashboard');
     }
+    function particpant(){
+        $participants=Lottory::all();
+        return view('backend.particpant',[
+            "participants"=>$participants
+        ]);
+    }
     function sendLottory(Request $request){
         logger($request->get("numbers"));
         $lottery=new Lottory();

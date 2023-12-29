@@ -21,5 +21,6 @@ Route::match(['POST','GET'],'/register', [AuthController::class, 'register'])->n
 Route::match(['POST','GET'],'/login', [AuthController::class, 'login'])->name('login');
 //Route::group(['middleware' => ['auth']], function () {
     Route::get('dash/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('dash/participant', [DashboardController::class, 'particpant'])->name('particpant');
 Route::match(['POST','GET'],'/sendLottory', [DashboardController::class, 'sendLottory'])->name('sendlottory');
 //});
