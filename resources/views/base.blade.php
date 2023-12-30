@@ -89,6 +89,9 @@
         </div>
     </div>
 </div>
+<!-- bubbly -->
+<canvas id="canvas1"></canvas>
+<!-- bubbly End -->
 <script src="{{asset('front/js/jquery-min.js')}}"></script>
 <!-- popper JavaScript -->
 <script src="{{asset('front/js/popper.min.js')}}"></script>
@@ -101,7 +104,10 @@
 <!-- bubbly JavaScript -->
 <script src="{{asset('front/js/bubbly-bg.js')}}"></script>
 
-
+<script src="{{asset('front/js/lib/canvasjs.min.js')}}"></script>
+<script src="{{asset('front/js/lib/particles1.min.js')}}"></script>
+<script src="{{asset('front/js/lib/app.js')}}"></script>
+<script src="{{asset('front/js/lib/stats.js')}}"></script>
 <!-- carousel JavaScript -->
 <script src="{{asset('front/js/owl.carousel.min.js')}}"></script>
 <!-- Custom JavaScript -->

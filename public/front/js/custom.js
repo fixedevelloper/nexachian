@@ -1,6 +1,6 @@
 /*
 
-Template: COINEX - Crypto Currency HTML Template 
+Template: COINEX - Crypto Currency HTML Template
 Author: iqonicthemes.in
 Version: 2.0
 
@@ -217,7 +217,7 @@ $(document).ready(function() {
     /*------------------------
     Chart
     --------------------------*/
-    var chart = AmCharts.makeChart("chartdiv", {
+  /*  var chart = AmCharts.makeChart("chartdiv", {
         "theme": "none",
         "type": "serial",
         "startDuration": 2,
@@ -316,7 +316,7 @@ $(document).ready(function() {
         }
 
     }, 0);
-
+*/
 
 
     /*------------------------
@@ -394,7 +394,7 @@ $(document).ready(function() {
                 "enabled": true
             }
         });
-        
+
 
     chart.addListener("init", handleInit);
 
@@ -403,7 +403,7 @@ $(document).ready(function() {
     });
 
     }
-    
+
     function handleInit() {
         chart.legend.addListener("rollOverItem", handleRollOver);
     }
@@ -453,7 +453,7 @@ $(document).ready(function() {
             }
         });
     }
-   
+
 
 
     /*------------------------

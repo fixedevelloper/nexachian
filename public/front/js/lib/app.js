@@ -12,7 +12,7 @@ particlesJS.load('particles-js', 'particles.json', function() {
 /* Otherwise just put the config content (json): */
 
 particlesJS('particles-js',
-  
+
   {
     "particles": {
       "number": {
@@ -35,10 +35,20 @@ particlesJS('particles-js',
           "nb_sides": 5
         },
         "image": {
-          "src": "images/coin/14.png",
+          "src": "/front/images/coin/14.png",
           "width": 100,
           "height": 100
         },
+          "image2": {
+              "src": "/front/images/coin/13.png",
+              "width": 100,
+              "height": 100
+          },
+          "image3": {
+              "src": "/front/images/coin/12.png",
+              "width": 100,
+              "height": 100
+          },
 /*
         "image2": {
           "src": "images/02.png.png",
