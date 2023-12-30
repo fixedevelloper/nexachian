@@ -39,16 +39,7 @@ particlesJS('particles-js',
           "width": 100,
           "height": 100
         },
-          "image2": {
-              "src": "/front/images/coin/13.png",
-              "width": 100,
-              "height": 100
-          },
-          "image3": {
-              "src": "/front/images/coin/12.png",
-              "width": 100,
-              "height": 100
-          },
+
 /*
         "image2": {
           "src": "images/02.png.png",
