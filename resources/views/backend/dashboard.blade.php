@@ -869,7 +869,6 @@
                                         </button>
                                     @endfor
                                 </div>
-
                             </div>
                             <div class="card-footer">
                                 <div class="row mb-3 container" id="content_lotto">
@@ -890,7 +889,31 @@
                                 </div>
                             </div>
                         </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Number</th>
+                                    <th>Occurrence</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($values as $value)
+                                    <tr>
+                                        <td>{{ $loop->index+1 }}</td>
+                                        <td>{{$value['item']}}</td>
+                                        <td>{{$value['value']}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
 
+                            </table>
+                        </div>
+                    </div>
+                </div>
 {{--                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
