@@ -7,6 +7,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Lottory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -41,8 +42,15 @@ class DashboardController extends Controller
             "values"=>$values
         ]);
     }
+    function my_tirage(){
+        $address_session=Session::get("address_");
+        $participants=Lottory::query()->where(['address'=>$address_session])->orderByDesc('id')->get();
+        return view('backend.my_tirage',[
+            "participants"=>$participants
+        ]);
+    }
     function particpant(){
-        $participants=Lottory::all();
+        $participants=Lottory::query()->orderByDesc('id')->get();;
         return view('backend.particpant',[
             "participants"=>$participants
         ]);

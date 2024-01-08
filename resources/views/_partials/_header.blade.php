@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="javascript:void(0)">
-                        <img src="images/logo.png" class="img-fluid" alt="">
+                        <img src="{{asset('back/images/logo.svg')}}" class="img-fluid" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="la la-bars"></i>
@@ -47,7 +47,8 @@
                             </div>
                         </li>
                         <li class="nav-item iq-mlr-0">
-                            <a class="nav-link button" data-bs-toggle="modal" data-bs-target=".iq-login" data-whatever="@mdo" href="javascript:void(0)">Login</a>
+                            <a class="nav-link button" onclick="lottery.login()">Login</a>
+                            {{--<a class="nav-link button" data-bs-toggle="modal" data-bs-target=".iq-login" data-whatever="@mdo" href="javascript:void(0)">Login</a>--}}
                         </li>
                     </ul>
                 </nav>

@@ -54,8 +54,25 @@ var lottery = function () {
     const login=async function(){
         var account= await lottery.getAccount()
         console.log(account)
-        window.mxgfcontract = await new window.web3.eth.Contract(initialiseABI().abi, initialiseABI().address);
-       // window.mxgfcontract.methods.idToAddress(Number.parseInt(1)).call();
+       /* $.ajax({
+            url: configs.routes.sendLottory,
+            type: "GET",
+            dataType: "JSON",
+            data: {
+                'numbers':array,
+                'address':account
+            },
+            success: function (data) {
+                console.log(data)
+                $('#spinner_send').hide();
+                alert("Operation successful!")
+                // window.location.reload(true);
+            },
+            error: function (err) {
+                $('#spinner_send').hide();
+                alert("An error ocurred while loading data ...");
+            }
+        });*/
     };
     const sendLottery=async function(){
         $('#spinner_send').show();
@@ -91,6 +108,13 @@ var lottery = function () {
        }
 
     }
+    const currentBalance=async function(){
+        var account= await lottery.getAccount()
+        window.mxgfcontract = await new window.web3.eth.Contract(initialiseABI().abi, initialiseABI().address);
+      var current_balance=  await window.mxgfcontract.methods.getCurrentBalance().call();
+      console.log(current_balance)
+      $('#current_balance').text(current_balance/1000000000000000000)
+    };
     return {
         init: function () {
             initialiseEtheruim();
@@ -99,6 +123,7 @@ var lottery = function () {
         },
         load: function () {
             initialiseEtheruim();
+            currentBalance()
         },
         getAccount,
         register,
@@ -109,7 +134,6 @@ var lottery = function () {
 jQuery(document).ready(function() {
     'use strict';
     lottery.init();
-
 });
 jQuery(window).on('load',function () {
     'use strict';
